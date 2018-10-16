@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FileService } from '../../services/fileService/file.service';
 
 const mockQuiz = {
   topics: [
@@ -42,7 +43,9 @@ const mockQuiz = {
 })
 export class CreateQuizComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private fileService: FileService,
+  ) { }
 
   ngOnInit() {}
 
