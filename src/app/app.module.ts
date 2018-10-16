@@ -8,11 +8,13 @@ import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
 import { FileService } from './services/fileService/file.service';
+import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EnterScreenComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

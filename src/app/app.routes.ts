@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { EnterScreenComponent } from './components/enter-screen/enter-screen.component'
+
 export const appRoutes: Routes = [
-  // { path: 'landing-page', component: LandingPageComponent },
-  // { path: 'edit', component: ChecklistEditComponent},
-  // { path: '', redirectTo: '/landing-page', pathMatch: 'full'}
+  { path: '', component: EnterScreenComponent}
 ];
