@@ -1,6 +1,24 @@
 // ./main.js
-const {app, BrowserWindow, ipcMain} = require('electron')
+const {app, BrowserWindow, ipcMain, dialog} = require('electron')
+var fs = require('file-system');
+
 let win = null;
+
+const saveFileOptions = {
+  defaultPath: 'myQuiz.qz',
+}
+
+function writeFile(fileName, content) {
+  fs.writeFile(fileName, content);
+}
+
+function saveFile(content) {
+  dialog.showSaveDialog(
+    saveFileOptions,
+    fileName => writeFile(fileName, JSON.stringify(content))
+  );
+}
+
 function createWindow() {
   // Initialize the window to our specified dimensions
   win = new BrowserWindow({width: 1000, height: 600});
@@ -32,5 +50,8 @@ app.on('window-all-closed', function () {
 });
 
 ipcMain.on('sync', (event, arg) => {
-    console.log(arg);
+    switch(arg.type) {
+      case 'saveQuiz': return saveFile(arg.payload);
+      default: return;
+    }
 });
