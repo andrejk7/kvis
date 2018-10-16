@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 
 import { FileService } from './services/fileService/file.service';
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
+import { MainScreenComponent } from './components/main-screen/main-screen.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    EnterScreenComponent
+    EnterScreenComponent,
+    MainScreenComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
