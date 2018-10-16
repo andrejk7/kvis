@@ -1,5 +1,5 @@
 // ./main.js
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 let win = null;
 function createWindow() {
   // Initialize the window to our specified dimensions
@@ -18,13 +18,19 @@ function createWindow() {
 app.on('ready', function () {
   createWindow();
 });
+
 app.on('activate', () => {
   if (win === null) {
     createWindow()
   }
 })
+
 app.on('window-all-closed', function () {
   if (process.platform != 'darwin') {
     app.quit();
   }
+});
+
+ipcMain.on('sync', (event, arg) => {
+    console.log(arg);
 });
