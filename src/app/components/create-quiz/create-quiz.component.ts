@@ -44,4 +44,6 @@ export class CreateQuizComponent implements OnInit {
 
   constructor() { }
 
+  ngOnInit() {}
+
 }
