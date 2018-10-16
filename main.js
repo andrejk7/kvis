@@ -4,19 +4,35 @@ var fs = require('file-system');
 
 let win = null;
 
+const FILE_EXTENSION = 'qz';
+const DEFAULT_SAVE_PATH = 'myQuiz.' + FILE_EXTENSION;
+
 const saveFileOptions = {
-  defaultPath: 'myQuiz.qz',
+  defaultPath: DEFAULT_SAVE_PATH,
 }
 
-function writeFile(fileName, content) {
-  fs.writeFile(fileName, content);
+const openFileOptions = {
+  filters: [
+    {
+      name: 'Custom File Type',
+      extensions: [FILE_EXTENSION]
+    }
+  ],
+  multiSelections: false,
 }
 
 function saveFile(content) {
   dialog.showSaveDialog(
     saveFileOptions,
-    fileName => writeFile(fileName, JSON.stringify(content))
+    fileName => fs.writeFile(fileName, JSON.stringify(content))
   );
+}
+
+function openFile() {
+  dialog.showOpenDialog(
+    openFileOptions,
+    fileNames => fs.readFile(fileNames[0], 'utf-8', (err, data) => win.webContents.send('onQuizLoaded', data))
+  )
 }
 
 function createWindow() {
@@ -52,6 +68,7 @@ app.on('window-all-closed', function () {
 ipcMain.on('sync', (event, arg) => {
     switch(arg.type) {
       case 'saveQuiz': return saveFile(arg.payload);
+      case 'loadQuiz': return openFile();
       default: return;
     }
 });

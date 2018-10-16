@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FileService } from '../../services/fileService/file.service';
+
+import { Quiz } from '../../../types/quiz';
 
 @Component({
   selector: 'app-main-screen',
@@ -10,10 +13,18 @@ export class MainScreenComponent {
 
   constructor(
     private router: Router,
+    private fileService: FileService,
   ) { }
 
   goToCreateQuiz = () => {
     this.router.navigate(['/create-quiz']);
   }
 
+  openQuiz = () => {
+    this.fileService.loadQuiz(this.onQuizLoaded);
+  }
+
+  onQuizLoaded = (quiz: Quiz) => {
+    console.log(quiz);
+  }
 }
