@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { FileService } from './services/fileService/file.service';
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
+import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EnterScreenComponent,
-    MainScreenComponent
+    MainScreenComponent,
+    CreateQuizComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
