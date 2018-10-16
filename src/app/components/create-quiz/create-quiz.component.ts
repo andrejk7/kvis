@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from '../../services/fileService/file.service';
 
+import { Quiz } from '../../../types/quiz';
+
 const mockQuiz = {
   topics: [
     {
@@ -42,11 +44,18 @@ const mockQuiz = {
   styleUrls: ['./create-quiz.component.css']
 })
 export class CreateQuizComponent implements OnInit {
+  public quiz: Quiz;
 
   constructor(
     private fileService: FileService,
-  ) { }
+  ) {
+    this.quiz = mockQuiz;
+  }
 
   ngOnInit() {}
 
+  createQuiz = (event: any) => {
+    event.preventDefault();
+    this.fileService.saveQuiz(this.quiz);
+  }
 }
