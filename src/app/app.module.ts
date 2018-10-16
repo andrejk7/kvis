@@ -11,6 +11,7 @@ import { FileService } from './services/fileService/file.service';
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
+import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CreateQuizComponent } from './components/create-quiz/create-quiz.compon
     AppComponent,
     EnterScreenComponent,
     MainScreenComponent,
-    CreateQuizComponent
+    CreateQuizComponent,
+    CuSeKacimComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
