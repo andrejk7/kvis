@@ -14,6 +14,9 @@ import { MainScreenComponent } from './components/main-screen/main-screen.compon
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
 import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.component';
 import { NewQuestionFormComponent } from './components/new-question-form/new-question-form.component';
+import { CreateTopicComponent } from './components/create-topic/create-topic.component';
+import { NewTopicFormComponent } from './components/new-topic-form/new-topic-form.component';
+import { NewQuizFormComponent } from './components/new-quiz-form/new-quiz-form.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { NewQuestionFormComponent } from './components/new-question-form/new-que
     MainScreenComponent,
     CreateQuizComponent,
     CuSeKacimComponent,
-    NewQuestionFormComponent
+    NewQuestionFormComponent,
+    CreateTopicComponent,
+    NewTopicFormComponent,
+    NewQuizFormComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

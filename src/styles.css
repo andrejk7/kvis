@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+input.form-control, textarea.form-control {
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+textarea.form-control {
+  height: 200px;
+  resize: none;
+}

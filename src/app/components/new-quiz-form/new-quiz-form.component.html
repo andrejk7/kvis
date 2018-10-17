@@ -1,0 +1,16 @@
+<form (submit)="createQuizBasics()" #quizBasics="ngForm">
+  <input
+    name="quizName"
+    class="form-control"
+    [(ngModel)]="quiz.name"
+    placeholder="Име"
+    required
+  >
+  <button
+    class="btn btn-default"
+    type="submit"
+    [disabled]="!quizBasics.form.valid"
+  >
+    Следеќе
+  </button>
+</form>

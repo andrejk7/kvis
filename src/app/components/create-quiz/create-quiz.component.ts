@@ -48,11 +48,16 @@ export class CreateQuizComponent implements OnInit {
 
   constructor(
     private fileService: FileService,
-  ) {
-    this.quiz = mockQuiz;
+  ) {}
+
+  ngOnInit() {
+    this.initializeEmptyQuiz();
   }
 
-  ngOnInit() {}
+  initializeEmptyQuiz = () => {
+    this.quiz = new Quiz;
+    this.quiz.topics = [];
+  }
 
   createQuiz = () => {
     this.fileService.saveQuiz(this.quiz);
