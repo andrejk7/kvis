@@ -54,8 +54,7 @@ export class CreateQuizComponent implements OnInit {
 
   ngOnInit() {}
 
-  createQuiz = (event: any) => {
-    event.preventDefault();
+  createQuiz = () => {
     this.fileService.saveQuiz(this.quiz);
   }
 }

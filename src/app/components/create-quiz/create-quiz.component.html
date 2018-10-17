@@ -1,12 +1,13 @@
-<form (submit)="createQuiz($event)">
+<div>
   <app-new-question-form>
   </app-new-question-form>
   <button
     class="btn btn-primary"
     type="submit"
+   (click)="createQuiz()"
   >
     <strong>
       Створити!
     </strong>
   </button>
-</form>
+</div>
