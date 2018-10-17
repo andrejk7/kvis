@@ -5,7 +5,12 @@
     *ngIf="displayCreateBasics()"
   >
   </app-new-quiz-form>
-  <button
+  <app-new-topic-form
+    [quiz]="quiz"
+    *ngIf="displayCreateTopics()"
+  >
+  </app-new-topic-form>
+  <!-- <button
     class="btn btn-primary"
     type="submit"
    (click)="createQuiz()"
@@ -13,5 +18,5 @@
     <strong>
       Створити!
     </strong>
-  </button>
+  </button> -->
 </div>
