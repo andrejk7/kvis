@@ -1,5 +1,9 @@
 <div>
-  <app-new-quiz-form>
+  <app-new-quiz-form
+    [quiz]="quiz"
+    (quizBasicsCreated)="onQuizBasicsCreated()"
+    *ngIf="displayCreateBasics()"
+  >
   </app-new-quiz-form>
   <button
     class="btn btn-primary"

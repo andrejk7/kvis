@@ -38,6 +38,9 @@ const mockQuiz = {
   ]
 };
 
+const QUIZ_CREATE_BASICS_VIEW = 'basics';
+const QUIZ_CREATE_TOPICS_VIEW = 'create-topic';
+
 @Component({
   selector: 'app-create-quiz',
   templateUrl: './create-quiz.component.html',
@@ -46,17 +49,36 @@ const mockQuiz = {
 export class CreateQuizComponent implements OnInit {
   public quiz: Quiz;
 
+  private currentView: string;
+
   constructor(
     private fileService: FileService,
   ) {}
 
   ngOnInit() {
     this.initializeEmptyQuiz();
+    this.setView(QUIZ_CREATE_BASICS_VIEW);
   }
 
   initializeEmptyQuiz = () => {
     this.quiz = new Quiz;
     this.quiz.topics = [];
+  }
+
+  setView = (view: string) => {
+    this.currentView = view;
+  }
+
+  displayCreateBasics = (): boolean => {
+    return this.currentView === QUIZ_CREATE_BASICS_VIEW;
+  }
+
+  displayCreateTopics = (): boolean => {
+    return this.currentView === QUIZ_CREATE_TOPICS_VIEW;
+  }
+
+  onQuizBasicsCreated = () => {
+    this.setView(QUIZ_CREATE_TOPICS_VIEW);
   }
 
   createQuiz = () => {

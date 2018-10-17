@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, } from '@angular/core';
 import { Quiz } from '../../../types/quiz';
 
 @Component({
@@ -6,12 +6,11 @@ import { Quiz } from '../../../types/quiz';
   templateUrl: './new-quiz-form.component.html',
   styleUrls: ['./new-quiz-form.component.css']
 })
-export class NewQuizFormComponent implements OnInit {
-  public quiz: Quiz;
+export class NewQuizFormComponent {
+  @Input() quiz: Quiz;
+  @Output() quizBasicsCreated: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() { }
-
-  ngOnInit() {
+  createQuizBasics = () => {
+    this.quizBasicsCreated.emit();
   }
-
 }
