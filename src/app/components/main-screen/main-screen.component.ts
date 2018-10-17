@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FileService } from '../../services/fileService/file.service';
+import { CurrentQuizService } from '../../services/currentQuizService/current-quiz.service';
 
 import { Quiz } from '../../../types/quiz';
 
@@ -14,6 +15,7 @@ export class MainScreenComponent {
   constructor(
     private router: Router,
     private fileService: FileService,
+    private currentQuizService: CurrentQuizService,
   ) { }
 
   goToCreateQuiz = () => {
@@ -25,6 +27,14 @@ export class MainScreenComponent {
   }
 
   onQuizLoaded = (quiz: Quiz) => {
-    console.log(quiz);
+    this.currentQuizService.storeQuiz(quiz);
+  }
+
+  getCurrentQuiz = (): Quiz => {
+    return this.currentQuizService.getQuiz();
+  }
+
+  displayCurrentQuiz = (): boolean => {
+    return !!this.currentQuizService.getQuiz();
   }
 }

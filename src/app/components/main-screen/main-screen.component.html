@@ -1,5 +1,10 @@
 <div class="container text-center">
   <h2>Квис менађер</h2>
+  <app-quiz-preview
+    [quiz]="getCurrentQuiz()"
+    *ngIf="displayCurrentQuiz()"
+  >
+  </app-quiz-preview>
   <button class="btn btn-default" (click)="goToCreateQuiz()">
     Створити квис
   </button>
