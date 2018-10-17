@@ -12,6 +12,7 @@ import { EnterScreenComponent } from './components/enter-screen/enter-screen.com
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
 import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.component';
+import { NewQuestionFormComponent } from './components/new-question-form/new-question-form.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.compone
     EnterScreenComponent,
     MainScreenComponent,
     CreateQuizComponent,
-    CuSeKacimComponent
+    CuSeKacimComponent,
+    NewQuestionFormComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
