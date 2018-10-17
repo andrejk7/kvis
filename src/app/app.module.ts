@@ -9,6 +9,7 @@ import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
 import { FileService } from './services/fileService/file.service';
+import { CurrentQuizService } from './services/currentQuizService/current-quiz.service';
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
@@ -43,6 +44,7 @@ import { TopicPreviewComponent } from './components/topic-preview/topic-preview.
   ],
   providers: [
     FileService,
+    CurrentQuizService,
   ],
   bootstrap: [AppComponent]
 })
