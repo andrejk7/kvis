@@ -27,4 +27,9 @@ export class NewTopicFormComponent implements OnInit {
   addTopicDisabled = (): boolean => {
     return this.topic.questions.length < MIN_TOPIC_QUESTIONS_COUNT;
   }
+
+  addTopic = () => {
+    this.quiz.topics.push(this.topic);
+    this.initializeTopic();
+  }
 }
