@@ -1,0 +1,10 @@
+<div (click)="toggleDisplayQuestions()">
+  <h4>{{topic.name}}</h4>
+</div>
+<div class="questions" *ngIf="shouldDisplayQuestions()">
+  <app-question-preview
+    *ngFor="let question of topic.questions;"
+    [question]="question"
+  >
+  </app-question-preview>
+</div>
