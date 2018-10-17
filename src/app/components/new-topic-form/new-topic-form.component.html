@@ -18,3 +18,8 @@
     <strong>Створити тему</strong>
   </button>
 </form>
+<app-question-preview
+  *ngFor="let question of topic.questions;"
+  [question]="question"
+>
+</app-question-preview>
