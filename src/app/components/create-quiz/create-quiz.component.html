@@ -11,15 +11,18 @@
       *ngIf="displayCreateTopics()"
     >
     </app-new-topic-form>
-    <!-- <button
+  </div>
+  <div class="row">
+    <button
       class="btn btn-primary"
-      type="submit"
+      type="button"
      (click)="createQuiz()"
+     [disabled]="createQuizDisabled()"
     >
       <strong>
-        Створити!
+        Створити квис!
       </strong>
-    </button> -->
+    </button>
   </div>
   <div class="row">
     <app-topic-preview

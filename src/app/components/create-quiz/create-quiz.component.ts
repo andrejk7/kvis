@@ -40,6 +40,7 @@ const mockQuiz = {
 
 const QUIZ_CREATE_BASICS_VIEW = 'basics';
 const QUIZ_CREATE_TOPICS_VIEW = 'create-topic';
+const QUIZ_MIN_TOPICS_COUNT = 1;
 
 @Component({
   selector: 'app-create-quiz',
@@ -79,6 +80,10 @@ export class CreateQuizComponent implements OnInit {
 
   onQuizBasicsCreated = () => {
     this.setView(QUIZ_CREATE_TOPICS_VIEW);
+  }
+
+  createQuizDisabled = (): boolean => {
+    return this.quiz.topics.length < QUIZ_MIN_TOPICS_COUNT;
   }
 
   createQuiz = () => {
