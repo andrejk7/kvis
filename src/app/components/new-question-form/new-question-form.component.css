@@ -1,0 +1,13 @@
+input, textarea {
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+textarea {
+  height: 200px;
+  resize: none;
+}
+
+button {
+  margin-bottom: 30px;
+}

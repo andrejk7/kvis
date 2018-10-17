@@ -12,6 +12,7 @@ export class NewQuestionFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.question = new Question;
   }
 
 }

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {NgxElectronModule} from 'ngx-electron';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { appRoutes } from './app.routes';
 
@@ -27,7 +28,8 @@ import { NewQuestionFormComponent } from './components/new-question-form/new-que
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
-    NgxElectronModule
+    NgxElectronModule,
+    FormsModule,
   ],
   providers: [
     FileService,
