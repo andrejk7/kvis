@@ -12,7 +12,7 @@
   <form (submit)="changeName()" *ngIf="editing" #nameForm="ngForm">
     <input
       name="name"
-      [(ngModel)]="editedTitle"
+      [(ngModel)]="editedName"
       required
       type="text"
       placeholder="Име"

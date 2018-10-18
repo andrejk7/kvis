@@ -10,15 +10,15 @@ export class ManageNameComponent {
   @Input() named: Named;
 
   private editing: boolean;
-  private editedTitle: string;
+  private editedName: string;
 
   edit = () => {
-    this.editedTitle = this.named.name;
+    this.editedName = this.named.name;
     this.editing = true;
   }
 
   changeName = () => {
-    this.named.name = this.editedTitle;
+    this.named.name = this.editedName;
     this.editing = false;
   }
 
