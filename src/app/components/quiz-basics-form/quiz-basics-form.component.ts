@@ -10,7 +10,7 @@ export class QuizBasicsFormComponent {
   @Input() quiz: Quiz;
   @Output() quizBasicsSubmitted: EventEmitter<void> = new EventEmitter<void>();
 
-  createQuizBasics = () => {
+  submitQuizBasics = () => {
     this.quizBasicsSubmitted.emit();
   }
 }
