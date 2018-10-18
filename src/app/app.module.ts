@@ -15,12 +15,12 @@ import { MainScreenComponent } from './components/main-screen/main-screen.compon
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
 import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
-import { NewTopicFormComponent } from './components/new-topic-form/new-topic-form.component';
 import { QuestionPreviewComponent } from './components/question-preview/question-preview.component';
 import { TopicPreviewComponent } from './components/topic-preview/topic-preview.component';
 import { QuizPreviewComponent } from './components/quiz-preview/quiz-preview.component';
 import { QuizBasicsFormComponent } from './components/quiz-basics-form/quiz-basics-form.component';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
+import { TopicFormComponent } from './components/topic-form/topic-form.component';
 
 
 @NgModule({
@@ -31,12 +31,12 @@ import { QuestionFormComponent } from './components/question-form/question-form.
     CreateQuizComponent,
     CuSeKacimComponent,
     CreateTopicComponent,
-    NewTopicFormComponent,
     QuestionPreviewComponent,
     TopicPreviewComponent,
     QuizPreviewComponent,
     QuizBasicsFormComponent,
-    QuestionFormComponent
+    QuestionFormComponent,
+    TopicFormComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -5,11 +5,11 @@ import { Topic } from '../../../types/topic';
 const MIN_TOPIC_QUESTIONS_COUNT = 5;
 
 @Component({
-  selector: 'app-new-topic-form',
-  templateUrl: './new-topic-form.component.html',
-  styleUrls: ['./new-topic-form.component.css']
+  selector: 'app-topic-form',
+  templateUrl: './topic-form.component.html',
+  styleUrls: ['./topic-form.component.css']
 })
-export class NewTopicFormComponent implements OnInit {
+export class TopicFormComponent implements OnInit {
   @Input() quiz: Quiz;
 
   public topic: Topic;
@@ -28,7 +28,7 @@ export class NewTopicFormComponent implements OnInit {
     return this.topic.questions.length < MIN_TOPIC_QUESTIONS_COUNT;
   }
 
-  addTopic = () => {
+  submitTopic = () => {
     this.quiz.topics.push(this.topic);
     this.initializeTopic();
   }

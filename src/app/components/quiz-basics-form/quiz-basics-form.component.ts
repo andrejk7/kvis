@@ -6,7 +6,7 @@ import { Quiz } from '../../../types/quiz';
   templateUrl: './quiz-basics-form.component.html',
   styleUrls: ['./quiz-basics-form.component.css']
 })
-export class QuizBasicsFormComponent implements OnInit {
+export class QuizBasicsFormComponent {
   @Input() quiz: Quiz;
   @Output() quizBasicsCreated: EventEmitter<void> = new EventEmitter<void>();
 
