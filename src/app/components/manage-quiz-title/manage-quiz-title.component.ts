@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Quiz } from '../../../types/quiz';
 
 @Component({
@@ -6,17 +6,11 @@ import { Quiz } from '../../../types/quiz';
   templateUrl: './manage-quiz-title.component.html',
   styleUrls: ['./manage-quiz-title.component.css']
 })
-export class ManageQuizTitleComponent implements OnInit {
+export class ManageQuizTitleComponent {
   @Input() quiz: Quiz;
 
   private editing: boolean;
   private editedTitle: string;
-
-  constructor() { }
-
-  ngOnInit() {
-
-  }
 
   edit = () => {
     this.editedTitle = this.quiz.name;
