@@ -1,5 +1,16 @@
 <div class="container-fluid">
-  <h4>
-    {{quiz.name}}
+  <app-manage-quiz-title
+    [quiz]="quiz"
+  >
+  </app-manage-quiz-title>
+  <h4 class="section-header">
+    <strong>
+      Теми:
+    </strong>
   </h4>
+  <app-topic-preview
+    *ngFor="let topic of quiz.topics;"
+    [topic]="topic"
+  >
+  </app-topic-preview>
 </div>

@@ -7,3 +7,7 @@ textarea.form-control {
   height: 100px;
   resize: none;
 }
+
+button.btn.btn-cancel {
+  color: red;
+}

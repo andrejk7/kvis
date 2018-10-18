@@ -1,0 +1,28 @@
+<div class="row title-row">
+  <div class="col-xs-12" *ngIf="!editing">
+    <h3 class="title">
+      <strong>
+        {{quiz.name}}
+      </strong>
+    </h3>
+    <button class="btn btn-primary" (click)="edit()">
+      <span class="glyphicon glyphicon-pencil"></span>
+    </button>
+  </div>
+  <form (submit)="changeName()" *ngIf="editing" #nameForm="ngForm">
+    <input
+      name="quizName"
+      [(ngModel)]="editedTitle"
+      required
+      type="text"
+      placeholder="Име"
+      class="form-control"
+    >
+    <button class="btn btn-default btn-cancel" (click)="cancelEditing()" type="button">
+      <span class="glyphicon glyphicon-remove"></span>
+    </button>
+    <button class="btn btn-success" type="submit" [disabled]="!nameForm.form.valid">
+      <span class="glyphicon glyphicon-ok"></span>
+    </button>
+  </form>
+</div>
