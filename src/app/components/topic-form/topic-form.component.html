@@ -1,4 +1,4 @@
-<form (submit)="submitTopic()" #topicForm="ngForm" class="col-xs-12 col-sm-6">
+<form (submit)="submitTopic()" #topicForm="ngForm" class="col-xs-12">
   <h4>
     <strong>Тема</strong>
   </h4>
@@ -21,10 +21,3 @@
     <strong>Створити тему</strong>
   </button>
 </form>
-<div class="questions-preview col-xs-12 col-sm-6">
-  <app-question-preview
-    *ngFor="let question of topic.questions;"
-    [question]="question"
-  >
-  </app-question-preview>
-</div>

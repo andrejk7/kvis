@@ -4,6 +4,6 @@ input.form-control, textarea.form-control {
 }
 
 textarea.form-control {
-  height: 200px;
+  height: 100px;
   resize: none;
 }
