@@ -22,7 +22,7 @@ import { QuizBasicsFormComponent } from './components/quiz-basics-form/quiz-basi
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { TopicFormComponent } from './components/topic-form/topic-form.component';
 import { ManageQuizComponent } from './components/manage-quiz/manage-quiz.component';
-import { ManageQuizTitleComponent } from './components/manage-quiz-title/manage-quiz-title.component';
+import { ManageNameComponent } from './components/manage-name/manage-name.component';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import { ManageQuizTitleComponent } from './components/manage-quiz-title/manage-
     QuestionFormComponent,
     TopicFormComponent,
     ManageQuizComponent,
-    ManageQuizTitleComponent
+    ManageNameComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

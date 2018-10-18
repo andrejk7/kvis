@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageQuizTitleComponent } from './manage-quiz-title.component';
+import { ManageNameComponent } from './manage-name.component';
 
-describe('ManageQuizTitleComponent', () => {
-  let component: ManageQuizTitleComponent;
-  let fixture: ComponentFixture<ManageQuizTitleComponent>;
+describe('ManageNameComponent', () => {
+  let component: ManageNameComponent;
+  let fixture: ComponentFixture<ManageNameComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageQuizTitleComponent ]
+      declarations: [ ManageNameComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageQuizTitleComponent);
+    fixture = TestBed.createComponent(ManageNameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

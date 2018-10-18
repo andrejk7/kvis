@@ -2,7 +2,7 @@
   <div class="col-xs-12" *ngIf="!editing">
     <h3 class="title">
       <strong>
-        {{quiz.name}}
+        {{named.name}}
       </strong>
     </h3>
     <button class="btn btn-primary" (click)="edit()">
@@ -11,7 +11,7 @@
   </div>
   <form (submit)="changeName()" *ngIf="editing" #nameForm="ngForm">
     <input
-      name="quizName"
+      name="name"
       [(ngModel)]="editedTitle"
       required
       type="text"
