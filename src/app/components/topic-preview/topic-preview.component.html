@@ -1,5 +1,9 @@
 <div (click)="toggleDisplayQuestions()">
-  <h4>{{topic.name}}</h4>
+  <h4 class="title">{{topic.name}}</h4>
+  <span class="glyphicon glyphicon-chevron-down"></span>
+  <button class="btn btn-primary">
+    <span class="glyphicon glyphicon-pencil"></span>
+  </button>
 </div>
 <div class="questions" *ngIf="shouldDisplayQuestions()">
   <app-question-preview
