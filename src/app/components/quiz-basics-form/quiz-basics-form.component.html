@@ -1,4 +1,5 @@
 <form (submit)="submitQuizBasics()" #quizBasics="ngForm">
+  <label>Име на квис</label>
   <input
     name="quizName"
     class="form-control"
@@ -11,7 +12,6 @@
     type="submit"
     [disabled]="!quizBasics.form.valid"
   >
-    Следеќе
-    <span class="glyphicon glyphicon-chevron-right"></span>
+    ОК
   </button>
 </form>

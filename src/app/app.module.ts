@@ -21,6 +21,7 @@ import { QuizPreviewComponent } from './components/quiz-preview/quiz-preview.com
 import { QuizBasicsFormComponent } from './components/quiz-basics-form/quiz-basics-form.component';
 import { QuestionFormComponent } from './components/question-form/question-form.component';
 import { TopicFormComponent } from './components/topic-form/topic-form.component';
+import { ManageQuizComponent } from './components/manage-quiz/manage-quiz.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { TopicFormComponent } from './components/topic-form/topic-form.component
     QuizPreviewComponent,
     QuizBasicsFormComponent,
     QuestionFormComponent,
-    TopicFormComponent
+    TopicFormComponent,
+    ManageQuizComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
