@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="row">
-    <app-new-quiz-form
+    <app-quiz-basics-form
       [quiz]="quiz"
       (quizBasicsCreated)="onQuizBasicsCreated()"
       *ngIf="displayCreateBasics()"
     >
-    </app-new-quiz-form>
+    </app-quiz-basics-form>
     <app-new-topic-form
       [quiz]="quiz"
       *ngIf="displayCreateTopics()"

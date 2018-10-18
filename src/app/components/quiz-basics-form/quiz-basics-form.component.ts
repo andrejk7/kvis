@@ -2,11 +2,11 @@ import { Component, Input, Output, EventEmitter, } from '@angular/core';
 import { Quiz } from '../../../types/quiz';
 
 @Component({
-  selector: 'app-new-quiz-form',
-  templateUrl: './new-quiz-form.component.html',
-  styleUrls: ['./new-quiz-form.component.css']
+  selector: 'app-quiz-basics-form',
+  templateUrl: './quiz-basics-form.component.html',
+  styleUrls: ['./quiz-basics-form.component.css']
 })
-export class NewQuizFormComponent {
+export class QuizBasicsFormComponent implements OnInit {
   @Input() quiz: Quiz;
   @Output() quizBasicsCreated: EventEmitter<void> = new EventEmitter<void>();
 

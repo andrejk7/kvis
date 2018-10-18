@@ -17,10 +17,10 @@ import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.compone
 import { NewQuestionFormComponent } from './components/new-question-form/new-question-form.component';
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 import { NewTopicFormComponent } from './components/new-topic-form/new-topic-form.component';
-import { NewQuizFormComponent } from './components/new-quiz-form/new-quiz-form.component';
 import { QuestionPreviewComponent } from './components/question-preview/question-preview.component';
 import { TopicPreviewComponent } from './components/topic-preview/topic-preview.component';
 import { QuizPreviewComponent } from './components/quiz-preview/quiz-preview.component';
+import { QuizBasicsFormComponent } from './components/quiz-basics-form/quiz-basics-form.component';
 
 
 @NgModule({
@@ -33,10 +33,10 @@ import { QuizPreviewComponent } from './components/quiz-preview/quiz-preview.com
     NewQuestionFormComponent,
     CreateTopicComponent,
     NewTopicFormComponent,
-    NewQuizFormComponent,
     QuestionPreviewComponent,
     TopicPreviewComponent,
-    QuizPreviewComponent
+    QuizPreviewComponent,
+    QuizBasicsFormComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
