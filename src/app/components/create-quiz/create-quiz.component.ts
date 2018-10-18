@@ -55,6 +55,17 @@ export class CreateQuizComponent implements OnInit {
     return this.quiz.topics.length < QUIZ_MIN_TOPICS_COUNT;
   }
 
+  back = () => {
+    switch (this.currentView) {
+      case QUIZ_CREATE_TOPICS_VIEW: return this.setView(QUIZ_CREATE_BASICS_VIEW);
+      default: return;
+    }
+  }
+
+  backDisabled = (): boolean => {
+    return this.currentView === QUIZ_CREATE_BASICS_VIEW;
+  }
+
   createQuiz = () => {
     this.fileService.saveQuiz(this.quiz);
     this.currentQuizService.storeQuiz(this.quiz);
