@@ -8,9 +8,9 @@ import { Quiz } from '../../../types/quiz';
 })
 export class QuizBasicsFormComponent {
   @Input() quiz: Quiz;
-  @Output() quizBasicsCreated: EventEmitter<void> = new EventEmitter<void>();
+  @Output() quizBasicsSubmitted: EventEmitter<void> = new EventEmitter<void>();
 
   createQuizBasics = () => {
-    this.quizBasicsCreated.emit();
+    this.quizBasicsSubmitted.emit();
   }
 }

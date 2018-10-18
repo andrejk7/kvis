@@ -2,7 +2,7 @@
   <div class="row">
     <app-quiz-basics-form
       [quiz]="quiz"
-      (quizBasicsCreated)="onQuizBasicsCreated()"
+      (quizBasicsSubmitted)="onQuizBasicsCreated()"
       *ngIf="displayCreateBasics()"
     >
     </app-quiz-basics-form>
