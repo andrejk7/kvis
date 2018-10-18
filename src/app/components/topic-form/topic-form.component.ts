@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Quiz } from '../../../types/quiz';
+import { Component, Input, Output, EventEmitter, } from '@angular/core';
 import { Topic } from '../../../types/topic';
 
 const MIN_TOPIC_QUESTIONS_COUNT = 5;
@@ -9,27 +8,15 @@ const MIN_TOPIC_QUESTIONS_COUNT = 5;
   templateUrl: './topic-form.component.html',
   styleUrls: ['./topic-form.component.css']
 })
-export class TopicFormComponent implements OnInit {
-  @Input() quiz: Quiz;
-
-  public topic: Topic;
-
-  ngOnInit() {
-    this.initializeTopic();
-  }
-
-  initializeTopic = () => {
-    // dystopic axexexe
-    this.topic = new Topic;
-    this.topic.questions = [];
-  }
+export class TopicFormComponent {
+  @Input() topic: Topic;
+  @Output() topicSubmitted: EventEmitter<void> = new EventEmitter<void>();
 
   addTopicDisabled = (): boolean => {
     return this.topic.questions.length < MIN_TOPIC_QUESTIONS_COUNT;
   }
 
   submitTopic = () => {
-    this.quiz.topics.push(this.topic);
-    this.initializeTopic();
+    this.topicSubmitted.emit();
   }
 }

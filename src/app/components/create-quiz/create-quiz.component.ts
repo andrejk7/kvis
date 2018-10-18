@@ -4,6 +4,8 @@ import { CurrentQuizService } from '../../services/currentQuizService/current-qu
 import { Router } from '@angular/router';
 
 import { Quiz } from '../../../types/quiz';
+import { Question } from '../../../types/question';
+import { Topic } from '../../../types/topic';
 
 const QUIZ_CREATE_BASICS_VIEW = 'basics';
 const QUIZ_CREATE_TOPICS_VIEW = 'create-topic';
@@ -16,6 +18,8 @@ const QUIZ_MIN_TOPICS_COUNT = 1;
 })
 export class CreateQuizComponent implements OnInit {
   public quiz: Quiz;
+  public editedTopic: Topic;
+  public editedQuestion: Question;
 
   private currentView: string;
 
@@ -26,13 +30,24 @@ export class CreateQuizComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.initializeEmptyQuiz();
+    this.initializeQuiz();
+    this.initializeTopic();
+    this.initializeQuestion();
     this.setView(QUIZ_CREATE_BASICS_VIEW);
   }
 
-  initializeEmptyQuiz = () => {
+  initializeQuiz = () => {
     this.quiz = new Quiz;
     this.quiz.topics = [];
+  }
+
+  initializeTopic = () => {
+    this.editedTopic = new Topic;
+    this.editedTopic.questions = [];
+  }
+
+  initializeQuestion = () => {
+    this.editedQuestion = new Question;
   }
 
   setView = (view: string) => {
@@ -49,6 +64,11 @@ export class CreateQuizComponent implements OnInit {
 
   onQuizBasicsCreated = () => {
     this.setView(QUIZ_CREATE_TOPICS_VIEW);
+  }
+
+  onTopicSubmitted = () => {
+    this.quiz.topics.push(this.editedTopic);
+    this.initializeTopic();
   }
 
   createQuizDisabled = (): boolean => {
