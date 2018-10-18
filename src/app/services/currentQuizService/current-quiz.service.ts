@@ -3,6 +3,7 @@ import { Quiz } from '../../../types/quiz';
 
 const mockQuiz = {
   name: 'Trucks Quiz',
+  isStoredOnDisc: false,
   topics: [
     {
       name: 'trucks',
