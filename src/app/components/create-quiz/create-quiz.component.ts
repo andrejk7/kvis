@@ -7,8 +7,6 @@ import { Quiz } from '../../../types/quiz';
 import { Question } from '../../../types/question';
 import { Topic } from '../../../types/topic';
 
-const QUIZ_CREATE_BASICS_VIEW = 'basics';
-const QUIZ_CREATE_TOPICS_VIEW = 'create-topic';
 const QUIZ_MIN_TOPICS_COUNT = 1;
 
 @Component({
@@ -31,7 +29,6 @@ export class CreateQuizComponent implements OnInit {
   ngOnInit() {
     this.initializeQuiz();
     this.initializeTopic();
-    this.setView(QUIZ_CREATE_BASICS_VIEW);
   }
 
   initializeQuiz = () => {
@@ -43,21 +40,6 @@ export class CreateQuizComponent implements OnInit {
     this.editedTopic = new Topic;
     this.editedTopic.questions = [];
   }
-  setView = (view: string) => {
-    this.currentView = view;
-  }
-
-  displayCreateBasics = (): boolean => {
-    return this.currentView === QUIZ_CREATE_BASICS_VIEW;
-  }
-
-  displayCreateTopics = (): boolean => {
-    return this.currentView === QUIZ_CREATE_TOPICS_VIEW;
-  }
-
-  onQuizBasicsCreated = () => {
-    this.setView(QUIZ_CREATE_TOPICS_VIEW);
-  }
 
   onTopicSubmitted = () => {
     this.quiz.topics.push(this.editedTopic);
@@ -66,17 +48,6 @@ export class CreateQuizComponent implements OnInit {
 
   createQuizDisabled = (): boolean => {
     return this.quiz.topics.length < QUIZ_MIN_TOPICS_COUNT;
-  }
-
-  back = () => {
-    switch (this.currentView) {
-      case QUIZ_CREATE_TOPICS_VIEW: return this.setView(QUIZ_CREATE_BASICS_VIEW);
-      default: return;
-    }
-  }
-
-  backDisabled = (): boolean => {
-    return this.currentView === QUIZ_CREATE_BASICS_VIEW;
   }
 
   createQuiz = () => {

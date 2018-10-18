@@ -1,44 +1,37 @@
-<div class="container-fluid">
+<form class="container-fluid" #quizForm="ngForm">
   <div class="row">
-    <app-quiz-basics-form
-      [quiz]="quiz"
-      (quizBasicsSubmitted)="onQuizBasicsCreated()"
-      *ngIf="displayCreateBasics()"
-    >
-    </app-quiz-basics-form>
+    <div class="col-xs-12">
+      <h4>
+        <strong>
+          Квис
+        </strong>
+      </h4>
+      <input
+        name="quizName"
+        class="form-control"
+        [(ngModel)]="quiz.name"
+        placeholder="Име овога квиза"
+        required
+      >
+    </div>
     <app-topic-form
       [topic]="editedTopic"
       (topicSubmitted)="onTopicSubmitted()"
-      *ngIf="displayCreateTopics()"
     >
     </app-topic-form>
   </div>
   <div class="row">
-    <button
-      class="btn btn-default"
-      type="button"
-      (click)="back()"
-      [disabled]="backDisabled()"
-    >
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      Натраг
-    </button>
-    <button
-      class="btn btn-primary"
-      type="button"
-     (click)="createQuiz()"
-     [disabled]="createQuizDisabled()"
-    >
-      <strong>
-        Створити квис!
-      </strong>
-    </button>
+    <div class="col-xs-12">
+      <button
+        class="btn btn-success"
+        type="submit"
+       (click)="createQuiz()"
+       [disabled]="!quizForm.form.valid || createQuizDisabled()"
+      >
+        <strong>
+          Створити квис!
+        </strong>
+      </button>
+    </div>
   </div>
-  <div class="row">
-    <app-topic-preview
-      *ngFor="let topic of quiz.topics;"
-      [topic]="topic"
-    >
-    </app-topic-preview>
-  </div>
-</div>
+</form>
