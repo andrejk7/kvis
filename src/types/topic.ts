@@ -1,6 +1,6 @@
 import { Question } from './question';
+import { Named } from './named';
 
-export class Topic {
-  name: string;
+export class Topic extends Named {
   questions: Array<Question>;
 }
