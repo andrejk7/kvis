@@ -1,3 +1,6 @@
+<h4>
+  <strong>Питање</strong>
+</h4>
 <form (submit)="submitQuestion($event)" #questionForm="ngForm">
   <input
     name="question"
@@ -57,6 +60,6 @@
     type="submit"
     [disabled]="!questionForm.form.valid"
   >
-    Додати питање
+    Сачувати питање
   </button>
 </form>

@@ -19,7 +19,6 @@ const QUIZ_MIN_TOPICS_COUNT = 1;
 export class CreateQuizComponent implements OnInit {
   public quiz: Quiz;
   public editedTopic: Topic;
-  public editedQuestion: Question;
 
   private currentView: string;
 
@@ -32,7 +31,6 @@ export class CreateQuizComponent implements OnInit {
   ngOnInit() {
     this.initializeQuiz();
     this.initializeTopic();
-    this.initializeQuestion();
     this.setView(QUIZ_CREATE_BASICS_VIEW);
   }
 
@@ -45,11 +43,6 @@ export class CreateQuizComponent implements OnInit {
     this.editedTopic = new Topic;
     this.editedTopic.questions = [];
   }
-
-  initializeQuestion = () => {
-    this.editedQuestion = new Question;
-  }
-
   setView = (view: string) => {
     this.currentView = view;
   }
