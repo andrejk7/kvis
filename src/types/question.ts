@@ -1,4 +1,6 @@
-export class Question {
+import { Ref } from './ref';
+
+export class Question extends Ref {
   points: number;
   bonusPoints?: number;
   question: string;
