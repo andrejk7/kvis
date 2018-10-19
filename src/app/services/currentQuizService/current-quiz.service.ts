@@ -54,7 +54,6 @@ export class CurrentQuizService {
 
   constructor() {
     this.quiz = mockQuiz;
-    console.log(RefMapper.generateNextId(this.quiz.topics[0].questions));
   }
 
   storeQuiz = (quiz: Quiz) => {
