@@ -30,7 +30,7 @@ const mockTopic = {
       answer: 'DAF XF'
     }
   ]
-}
+};
 
 @Injectable()
 export class ManageTopicService {
@@ -44,4 +44,7 @@ export class ManageTopicService {
     return this.managedTopic || mockTopic;
   }
 
+  clearManagedTopic = () => {
+    this.managedTopic = null;
+  }
 }

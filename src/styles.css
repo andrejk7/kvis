@@ -11,3 +11,11 @@ textarea.form-control {
 button.btn.btn-cancel {
   color: red;
 }
+
+.margin-top-15 {
+  margin-top: 15px;
+}
+
+.margin-top-30 {
+  margin-top: 30px;
+}
