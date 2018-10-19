@@ -76,10 +76,11 @@ export class CurrentQuizService {
     this.quiz.topics[index] = { ...data };
   }
 
-  addTopic = (data: Topic) => {
+  addTopic = (data: Topic): Topic => {
     let topic = { ...data };
     topic.id = RefMapper.generateNextId(this.quiz.topics);
     this.quiz.topics.push(topic);
+    return topic;
   }
 
   getQuestion = (topicId: number, questionId: number): Question => {
@@ -98,11 +99,12 @@ export class CurrentQuizService {
     this.quiz.topics[topicIndex].questions[questionIndex] = { ...data };
   }
 
-  addQuestion = (topicId: number, data: Question) => {
+  addQuestion = (topicId: number, data: Question): Question => {
     const index = RefMapper.findIndex(this.quiz.topics, topicId);
     if (index === -1) { return; }
     let question = { ...data };
     question.id = RefMapper.generateNextId(this.quiz.topics[index].questions);
     this.quiz.topics[index].questions.push(question);
+    return question;
   }
 }
