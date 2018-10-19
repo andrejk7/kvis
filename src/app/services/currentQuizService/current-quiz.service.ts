@@ -76,6 +76,12 @@ export class CurrentQuizService {
     this.quiz.topics[index] = { ...data };
   }
 
+  addTopic = (data: Topic) => {
+    let topic = { ...data };
+    topic.id = RefMapper.generateNextId(this.quiz.topics);
+    this.quiz.topics.push(topic);
+  }
+
   getQuestion = (topicId: number, questionId: number): Question => {
     const topic = this.getTopic(topicId);
     if (!topic) { return; }
@@ -90,5 +96,13 @@ export class CurrentQuizService {
     const questionIndex = RefMapper.findIndex(this.quiz.topics[topicIndex].questions, questionId);
     if (questionIndex === -1) { return; }
     this.quiz.topics[topicIndex].questions[questionIndex] = { ...data };
+  }
+
+  addQuestion = (topicId: number, data: Question) => {
+    const index = RefMapper.findIndex(this.quiz.topics, topicId);
+    if (index === -1) { return; }
+    let question = { ...data };
+    question.id = RefMapper.generateNextId(this.quiz.topics[index].questions);
+    this.quiz.topics[index].questions.push(question);
   }
 }
