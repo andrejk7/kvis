@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 
 import { FileService } from './services/fileService/file.service';
 import { CurrentQuizService } from './services/currentQuizService/current-quiz.service';
+import { ManageTopicService } from './services/manageTopicService/manage-topic.service';
+
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
@@ -23,6 +25,7 @@ import { QuestionFormComponent } from './components/question-form/question-form.
 import { TopicFormComponent } from './components/topic-form/topic-form.component';
 import { ManageQuizComponent } from './components/manage-quiz/manage-quiz.component';
 import { ManageNameComponent } from './components/manage-name/manage-name.component';
+import { ManageTopicComponent } from './components/manage-topic/manage-topic.component';
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import { ManageNameComponent } from './components/manage-name/manage-name.compon
     QuestionFormComponent,
     TopicFormComponent,
     ManageQuizComponent,
-    ManageNameComponent
+    ManageNameComponent,
+    ManageTopicComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -51,6 +55,7 @@ import { ManageNameComponent } from './components/manage-name/manage-name.compon
   providers: [
     FileService,
     CurrentQuizService,
+    ManageTopicService,
   ],
   bootstrap: [AppComponent]
 })
