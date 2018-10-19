@@ -82,4 +82,12 @@ export class CurrentQuizService {
     if (index === -1) { return; }
     return topic.questions[index];
   }
+
+  updateQuestion = (topicId: number, questionId: number, data: Question) => {
+    const topicIndex = this.quiz.topics.map((topic: Topic) => topic.id).indexOf(topicId);
+    if (topicIndex) === -1 { return; }
+    const questionIndex = this.quiz.topics[topicIndex].questions.map((question: Question) => question.id).indexOf(questionId);
+    if (questionIndex === -1) { return; }
+    this.quiz.topics[topicIndex].questions[questionIndex] = { ...data };
+  }
 }

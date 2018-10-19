@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 
 import { FileService } from './services/fileService/file.service';
 import { CurrentQuizService } from './services/currentQuizService/current-quiz.service';
-import { ManageTopicService } from './services/manageTopicService/manage-topic.service';
 
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
@@ -55,7 +54,6 @@ import { ManageTopicComponent } from './components/manage-topic/manage-topic.com
   providers: [
     FileService,
     CurrentQuizService,
-    ManageTopicService,
   ],
   bootstrap: [AppComponent]
 })
