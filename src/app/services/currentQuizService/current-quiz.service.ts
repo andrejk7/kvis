@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Quiz } from '../../../types/quiz';
+import { Topic } from '../../../types/topic';
+import { Question } from '../../../types/question';
 
 const mockQuiz = {
   id: 0,
@@ -49,11 +51,35 @@ const mockQuiz = {
 export class CurrentQuizService {
   private quiz: Quiz;
 
+  constructor() {
+    this.quiz = mockQuiz;
+  }
+
   storeQuiz = (quiz: Quiz) => {
     this.quiz = { ...quiz };
   }
 
   getQuiz = (): Quiz => {
-    return this.quiz || mockQuiz;
+    return this.quiz;
+  }
+
+  getTopic = (id: number): Topic => {
+    const index = this.quiz.topics.map((topic: Topic) => topic.id).indexOf(id);
+    if (index === -1) { return; }
+    return this.quiz.topics[index];
+  }
+
+  updateTopic = (id: number, data: Topic) => {
+    const index = this.quiz.topics.map((topic: Topic) => topic.id).indexOf(id);
+    if (index === -1) { return; }
+    this.quiz.topics[index] = { ...data };
+  }
+
+  getQuestion = (topicId: number, questionId: number): Question => {
+    const topic = this.getTopic(topicId);
+    if (!topic) { return; }
+    const index = topic.questions.map((question: Question) => question.id).indexOf(questionId);
+    if (index === -1) { return; }
+    return topic.questions[index];
   }
 }
