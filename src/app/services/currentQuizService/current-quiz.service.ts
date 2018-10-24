@@ -107,4 +107,8 @@ export class CurrentQuizService {
     this.quiz.topics[index].questions.push(question);
     return question;
   }
+
+  clearQuiz = () => {
+    this.quiz = null;
+  }
 }

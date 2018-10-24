@@ -22,6 +22,10 @@ export class MainScreenComponent {
     this.router.navigate(['/create-quiz']);
   }
 
+  goToManageQuiz = () => {
+    this.router.navigate(['/manage-quiz']);
+  }
+
   openQuiz = () => {
     this.fileService.loadQuiz(this.onQuizLoaded);
   }
