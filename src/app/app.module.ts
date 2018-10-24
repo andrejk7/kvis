@@ -25,6 +25,7 @@ import { TopicFormComponent } from './components/topic-form/topic-form.component
 import { ManageQuizComponent } from './components/manage-quiz/manage-quiz.component';
 import { ManageNameComponent } from './components/manage-name/manage-name.component';
 import { ManageTopicComponent } from './components/manage-topic/manage-topic.component';
+import { ManageQuestionComponent } from './components/manage-question/manage-question.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ManageTopicComponent } from './components/manage-topic/manage-topic.com
     ManageQuizComponent,
     ManageNameComponent,
     ManageTopicComponent,
+    ManageQuestionComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
