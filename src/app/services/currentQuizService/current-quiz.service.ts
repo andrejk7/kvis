@@ -65,12 +65,6 @@ export class CurrentQuizService {
     return this.quiz;
   }
 
-  getTopic = (id: number): Topic => {
-    const index = RefMapper.findIndex(this.quiz.topics, id);
-    if (index === -1) { return; }
-    return this.quiz.topics[index];
-  }
-
   updateTopic = (id: number, data: Topic) => {
     const index = RefMapper.findIndex(this.quiz.topics, id);
     if (index === -1) { return; }
@@ -78,7 +72,7 @@ export class CurrentQuizService {
   }
 
   addTopic = (data: Topic): Topic => {
-    const topic = { ...data };
+    const topic = ObjectMapper.deepCopy(data);
     topic.id = RefMapper.generateNextId(this.quiz.topics);
     this.quiz.topics.push(topic);
     return topic;
