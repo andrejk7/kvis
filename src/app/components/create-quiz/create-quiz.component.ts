@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CurrentQuizService } from '../../services/currentQuizService/current-quiz.service';
+import { CreateQuizService } from '../../services/createQuizService/create-quiz.service';
 import { Router } from '@angular/router';
 
 import { Quiz } from '../../../types/quiz';
@@ -13,7 +13,7 @@ export class CreateQuizComponent implements OnInit {
   public quiz: Quiz;
 
   constructor(
-    private currentQuizService: CurrentQuizService,
+    private createQuizService: CreateQuizService,
     private router: Router,
   ) {}
 
@@ -28,7 +28,7 @@ export class CreateQuizComponent implements OnInit {
   }
 
   save = () => {
-    this.currentQuizService.storeQuiz(this.quiz);
+    this.createQuizService.saveQuiz(this.quiz);
     this.router.navigate(['/manage-quiz']);
   }
 
