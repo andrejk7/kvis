@@ -3,6 +3,7 @@ import { Quiz } from '../../../types/quiz';
 import { Topic } from '../../../types/topic';
 import { Question } from '../../../types/question';
 import { RefMapper } from '../../common/refMapper';
+import { ObjectMapper } from '../../common/objectMapper';
 
 const mockQuiz = {
   id: 0,
@@ -57,7 +58,7 @@ export class CurrentQuizService {
   }
 
   storeQuiz = (quiz: Quiz) => {
-    this.quiz = { ...quiz };
+    this.quiz = ObjectMapper.deepCopy(quiz);
   }
 
   getQuiz = (): Quiz => {
@@ -73,7 +74,7 @@ export class CurrentQuizService {
   updateTopic = (id: number, data: Topic) => {
     const index = RefMapper.findIndex(this.quiz.topics, id);
     if (index === -1) { return; }
-    this.quiz.topics[index] = { ...data };
+    this.quiz.topics[index] = ObjectMapper.deepCopy(data);
   }
 
   addTopic = (data: Topic): Topic => {
@@ -87,39 +88,6 @@ export class CurrentQuizService {
     const index = RefMapper.findIndex(this.quiz.topics, id);
     if (index === -1) { return; }
     this.quiz.topics.splice(index, 1);
-  }
-
-  getQuestion = (topicId: number, questionId: number): Question => {
-    const topic = this.getTopic(topicId);
-    if (!topic) { return; }
-    const index = RefMapper.findIndex(topic.questions, questionId);
-    if (index === -1) { return; }
-    return topic.questions[index];
-  }
-
-  updateQuestion = (topicId: number, questionId: number, data: Question) => {
-    const topicIndex = RefMapper.findIndex(this.quiz.topics, topicId);
-    if (topicIndex === -1) { return; }
-    const questionIndex = RefMapper.findIndex(this.quiz.topics[topicIndex].questions, questionId);
-    if (questionIndex === -1) { return; }
-    this.quiz.topics[topicIndex].questions[questionIndex] = { ...data };
-  }
-
-  addQuestion = (topicId: number, data: Question): Question => {
-    const index = RefMapper.findIndex(this.quiz.topics, topicId);
-    if (index === -1) { return; }
-    const question = { ...data };
-    question.id = RefMapper.generateNextId(this.quiz.topics[index].questions);
-    this.quiz.topics[index].questions.push(question);
-    return question;
-  }
-
-  removeQuestion = (topicId: number, questionId: number) => {
-    const topicIndex = RefMapper.findIndex(this.quiz.topics, topicId);
-    if (topicIndex === -1) { return; }
-    const questionIndex = RefMapper.findIndex(this.quiz.topics[topicIndex].questions, questionId);
-    if (questionIndex === -1) { return; }
-    this.quiz.topics[topicIndex].questions.splice(questionIndex, 1);
   }
 
   clearQuiz = () => {

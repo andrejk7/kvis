@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Question } from '../../../types/question';
-import { CurrentQuizService } from '../../services/currentQuizService/current-quiz.service';
+import { CurrentTopicService } from '../../services/currentTopicService/current-topic.service';
 
 @Component({
   selector: 'app-create-question',
@@ -16,7 +16,7 @@ export class CreateQuestionComponent implements OnInit, OnDestroy {
   private defaultPoints: number;
 
   constructor(
-    private currentQuizService: CurrentQuizService,
+    private currentTopicService: CurrentTopicService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
@@ -39,8 +39,7 @@ export class CreateQuestionComponent implements OnInit, OnDestroy {
   }
 
   save = () => {
-    this.currentQuizService.addQuestion(
-      this.topicId,
+    this.currentTopicService.addQuestion(
       this.question,
     );
     this.goToManageTopic();

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Topic } from '../../../types/topic';
+import { CurrentTopicService } from '../../services/currentTopicService/current-topic.service';
 
 @Component({
   selector: 'app-topic-preview',
@@ -12,6 +13,7 @@ export class TopicPreviewComponent {
 
   constructor(
     private router: Router,
+    private currentTopicService: CurrentTopicService,
   ) { }
 
   private displayQuestions: boolean;
@@ -25,6 +27,7 @@ export class TopicPreviewComponent {
   }
 
   openManageTopic = () => {
+    this.currentTopicService.setTopic(this.topic);
     this.router.navigate(['/manage-topic', this.topic.id]);
   }
 }

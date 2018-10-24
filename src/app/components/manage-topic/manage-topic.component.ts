@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Topic } from '../../../types/topic';
-import { CurrentQuizService } from '../../services/currentQuizService/current-quiz.service';
+import { CurrentTopicService } from '../../services/currentTopicService/current-topic.service';
 
 @Component({
   selector: 'app-manage-topic',
@@ -15,7 +15,7 @@ export class ManageTopicComponent implements OnInit, OnDestroy {
   private sub: any;
 
   constructor(
-    private currentQuizService: CurrentQuizService,
+    private currentTopicService: CurrentTopicService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
@@ -24,15 +24,16 @@ export class ManageTopicComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       this.topicId = +params['id'];
     });
-    this.topic = { ...this.currentQuizService.getTopic(this.topicId) };
+    this.topic = this.currentTopicService.getTopic();
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.currentTopicService.clearTopic();
   }
 
   save = () => {
-    this.currentQuizService.updateTopic(this.topicId, this.topic);
+    this.currentTopicService.saveTopic();
     this.goToManageQuiz();
   }
 
