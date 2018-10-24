@@ -40,6 +40,18 @@ export class ManageTopicComponent implements OnInit, OnDestroy {
     this.goToManageQuiz();
   }
 
+  newQuestion = () => {
+    const defaultPoints = (this.topic.questions.length + 1) * 10;
+
+    this.router.navigate([
+      '/manage-topic',
+      this.topicId,
+      'question',
+      'new',
+      defaultPoints,
+    ]);
+  }
+
   goToManageQuiz = () => {
     this.router.navigate(['/manage-quiz']);
   }
