@@ -43,6 +43,6 @@ export class ManageQuestionComponent implements OnInit, OnDestroy {
   }
 
   goToManageTopic = () => {
-    this.router.navigate(['/manage-topic', this.topicId.toString()]);
+    this.router.navigate(['/manage-topic']);
   }
 }

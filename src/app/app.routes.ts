@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
   { path: 'create-quiz', component: CreateQuizComponent},
   { path: 'manage-quiz', component: ManageQuizComponent},
   { path: 'manage-topic', component: ManageTopicComponent },
-  { path: 'manage-topic/:id/question/:questionId', component: ManageQuestionComponent },
+  { path: 'manage-topic', component: ManageQuestionComponent },
   { path: 'create-question/:defaultPoints', component: CreateQuestionComponent },
   { path: 'create-topic', component: CreateTopicComponent },
 ];

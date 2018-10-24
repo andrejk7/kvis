@@ -28,7 +28,7 @@ export class CreateTopicComponent implements OnInit {
 
   createTopic = () => {
     const topic = this.currentQuizService.addTopic(this.topic);
-    this.router.navigate(['/manage-topic', topic.id]);
+    this.router.navigate(['/manage-topic']);
   }
 
   cancel = () => {
