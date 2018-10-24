@@ -1,3 +1,6 @@
-<p>
-  create-topic works!
-</p>
+<app-topic-form
+  [topic]="topic"
+  (submitted)="createTopic()"
+  (cancelled)="cancel()"
+>
+</app-topic-form>

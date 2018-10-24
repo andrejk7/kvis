@@ -28,6 +28,10 @@ export class ManageQuizComponent implements OnInit {
     this.goToMain();
   }
 
+  createTopic = () => {
+    this.router.navigate(['/create-topic']);
+  }
+
   goToMain = () => {
     this.router.navigate(['/main']);
   }

@@ -5,6 +5,7 @@ import { MainScreenComponent } from './components/main-screen/main-screen.compon
 import { CreateQuizComponent } from './components/create-quiz/create-quiz.component';
 import { ManageQuizComponent } from './components/manage-quiz/manage-quiz.component';
 import { ManageTopicComponent } from './components/manage-topic/manage-topic.component';
+import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 import { ManageQuestionComponent } from './components/manage-question/manage-question.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 
@@ -16,4 +17,5 @@ export const appRoutes: Routes = [
   { path: 'manage-topic/:id', component: ManageTopicComponent },
   { path: 'manage-topic/:id/question/:questionId', component: ManageQuestionComponent },
   { path: 'manage-topic/:id/question/new/:defaultPoints', component: CreateQuestionComponent },
+  { path: 'create-topic', component: CreateTopicComponent },
 ];

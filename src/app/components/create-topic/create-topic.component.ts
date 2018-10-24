@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Topic } from '../../../types/topic';
+import { CurrentQuizService } from '../../services/currentQuizService/current-quiz.service';
+
 
 @Component({
   selector: 'app-create-topic',
@@ -6,10 +10,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-topic.component.css']
 })
 export class CreateTopicComponent implements OnInit {
+  public topic: Topic;
 
-  constructor() { }
+  constructor(
+    private currentQuizService: CurrentQuizService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
+    this.initializeTopic();
   }
 
+  initializeTopic = () => {
+    this.topic = new Topic();
+    this.topic.questions = [];
+  }
+
+  createTopic = () => {
+    const topic = this.currentQuizService.addTopic(this.topic);
+    this.router.navigate(['/manage-topic', topic.id]);
+  }
+
+  cancel = () => {
+    this.goToManageQuiz();
+  }
+
+  goToManageQuiz = () => {
+    this.router.navigate(['/manage-quiz']);
+  }
 }

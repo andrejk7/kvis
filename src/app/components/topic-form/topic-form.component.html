@@ -1,4 +1,4 @@
-<form (submit)="submitTopic()" #topicForm="ngForm" class="col-xs-12">
+<form (submit)="submitTopic($event)" #topicForm="ngForm" class="col-xs-12">
   <h4>
     <strong>Тема</strong>
   </h4>
@@ -10,9 +10,16 @@
     placeholder="Име ове теме"
   >
   <button
+    type="button"
+    class="btn btn-default"
+    (click)="cancel()"
+  >
+    <strong>Батали</strong>
+  </button>    
+  <button
     type="submit"
     class="btn btn-primary"
-    [disabled]="!topicForm.form.valid || addTopicDisabled()"
+    [disabled]="!topicForm.form.valid"
   >
     <strong>Створити тему</strong>
   </button>

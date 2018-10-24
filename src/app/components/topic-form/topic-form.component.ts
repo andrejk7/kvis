@@ -11,15 +11,15 @@ const MIN_TOPIC_QUESTIONS_COUNT = 5;
 })
 export class TopicFormComponent {
   @Input() topic: Topic;
-  @Output() topicSubmitted: EventEmitter<void> = new EventEmitter<void>();
+  @Output() submitted: EventEmitter<void> = new EventEmitter<void>();
+  @Output() cancelled: EventEmitter<void> = new EventEmitter<void>();
 
-  public editedQuestion: Question;
-
-  addTopicDisabled = (): boolean => {
-    return this.topic.questions.length < MIN_TOPIC_QUESTIONS_COUNT;
+  submitTopic = (event) => {
+    event.preventDefault();
+    this.submitted.emit();
   }
 
-  submitTopic = () => {
-    this.topicSubmitted.emit();
+  cancel = () => {
+    this.cancelled.emit();
   }
 }
