@@ -83,6 +83,12 @@ export class CurrentQuizService {
     return topic;
   }
 
+  removeTopic = (id: number) => {
+    const index = RefMapper.findIndex(this.quiz.topics, id);
+    if (index === -1) { return; }
+    this.quiz.topic.splice(index, 1);
+  }
+
   getQuestion = (topicId: number, questionId: number): Question => {
     const topic = this.getTopic(topicId);
     if (!topic) { return; }
@@ -106,6 +112,14 @@ export class CurrentQuizService {
     question.id = RefMapper.generateNextId(this.quiz.topics[index].questions);
     this.quiz.topics[index].questions.push(question);
     return question;
+  }
+
+  removeQuestion = (topicId: number, questionId: number) => {
+    const topicIndex = RefMapper.findIndex(this.quiz.topics, topicId);
+    if (topicIndex === -1) { return; }
+    const questionIndex = RefMapper.findIndex(this.quiz.topics[topicIndex].questions, questionId);
+    if (questionIndex === -1) { return; }
+    this.quiz.topics[topicIndex].questions.splice(questionIndex, 1);
   }
 
   clearQuiz = () => {
