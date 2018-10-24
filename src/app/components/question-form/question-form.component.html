@@ -55,8 +55,16 @@
     [(ngModel)]="question.bonusAnswer"
   >
   </textarea>
+
   <button
     class="btn btn-default"
+    type="button"
+    (click)="cancel()"
+  >
+    Заеби
+  </button>
+  <button
+    class="btn btn-primary"
     type="submit"
     [disabled]="!questionForm.form.valid"
   >

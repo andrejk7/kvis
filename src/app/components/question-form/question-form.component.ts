@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Question } from '../../../types/question';
 import { Topic } from '../../../types/topic';
 
@@ -8,29 +8,17 @@ import { Topic } from '../../../types/topic';
   templateUrl: './question-form.component.html',
   styleUrls: ['./question-form.component.css']
 })
-export class QuestionFormComponent implements OnInit {
-  @Input() topic: Topic;
-  public question: Question;
-
-  constructor() { }
-
-  ngOnInit() {
-    this.initializeEmptyQuestion();
-  }
-
-  initializeEmptyQuestion = () => {
-    this.question = new Question;
-    this.initializeDefaultQuestionPoints();
-  }
-
-  initializeDefaultQuestionPoints = () => {
-    // question's index + 1 when it'll be pushed to topic, multiplied by 10
-    this.question.points = (this.topic.questions.length + 1) * 10;
-  }
+export class QuestionFormComponent {
+  @Input() question: Question;
+  @Output() submitted: EventEmitter<void> = new EventEmitter<void>();
+  @Output() cancelled: EventEmitter<void> = new EventEmitter<void>();
 
   submitQuestion = (event: any) => {
     event.preventDefault();
-    this.topic.questions.push(this.question);
-    this.initializeEmptyQuestion();
+    this.submitted.emit();
+  }
+
+  cancel = () => {
+    this.cancelled.emit();
   }
 }
