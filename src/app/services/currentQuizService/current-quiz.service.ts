@@ -4,6 +4,7 @@ import { Topic } from '../../../types/topic';
 import { Question } from '../../../types/question';
 import { RefMapper } from '../../common/refMapper';
 import { ObjectMapper } from '../../common/objectMapper';
+import { FileService } from '../fileService/file.service';
 
 const mockQuiz = {
   id: 0,
@@ -53,9 +54,9 @@ const mockQuiz = {
 export class CurrentQuizService {
   private quiz: Quiz;
 
-  constructor() {
-    this.quiz = mockQuiz;
-  }
+  constructor(
+    private fileService: FileService;
+  ) { }
 
   storeQuiz = (quiz: Quiz) => {
     this.quiz = ObjectMapper.deepCopy(quiz);
@@ -86,5 +87,9 @@ export class CurrentQuizService {
 
   clearQuiz = () => {
     this.quiz = null;
+  }
+
+  saveQuiz = () => {
+    this.fileService.saveQuiz(this.quiz);
   }
 }

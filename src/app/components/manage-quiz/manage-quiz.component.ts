@@ -21,6 +21,7 @@ export class ManageQuizComponent implements OnInit {
   }
 
   save = () => {
+    this.currentQuizService.saveQuiz();
     this.goToMain();
   }
 
