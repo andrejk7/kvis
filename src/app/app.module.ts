@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 
 import { FileService } from './services/fileService/file.service';
 import { CurrentQuizService } from './services/currentQuizService/current-quiz.service';
+import { CreateTopicService } from './services/createTopicService/create-topic.service';
 import { CurrentTopicService } from './services/currentTopicService/current-topic.service';
 import { CreateQuestionService } from './services/createQuestionService/create-question.service';
 import { CurrentQuestionService } from './services/currentQuestionService/current-question.service';
@@ -62,6 +63,7 @@ import { CreateQuestionComponent } from './components/create-question/create-que
     FileService,
     CurrentQuizService,
     CurrentTopicService,
+    CreateTopicService,
     CurrentQuestionService,
     CreateQuestionService,
   ],

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Topic } from '../../../types/topic';
-import { CurrentQuizService } from '../../services/currentQuizService/current-quiz.service';
+import { CreateTopicService } from '../../services/createTopicService/create-topic.service';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class CreateTopicComponent implements OnInit {
   public topic: Topic;
 
   constructor(
-    private currentQuizService: CurrentQuizService,
+    private createTopicService: CreateTopicService,
     private router: Router,
   ) {}
 
@@ -27,7 +27,7 @@ export class CreateTopicComponent implements OnInit {
   }
 
   createTopic = () => {
-    const topic = this.currentQuizService.addTopic(this.topic);
+    this.createTopicService.saveTopic(this.topic);
     this.router.navigate(['/manage-topic']);
   }
 
