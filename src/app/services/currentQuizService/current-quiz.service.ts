@@ -55,7 +55,7 @@ export class CurrentQuizService {
   private quiz: Quiz;
 
   constructor(
-    private fileService: FileService;
+    private fileService: FileService,
   ) { }
 
   storeQuiz = (quiz: Quiz) => {

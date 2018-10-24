@@ -24,7 +24,6 @@ export class CreateQuizComponent implements OnInit {
   initializeQuiz = () => {
     this.quiz = new Quiz;
     this.quiz.topics = [];
-    this.quiz.isStoredOnDisc = false;
   }
 
   save = () => {
