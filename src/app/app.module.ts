@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { FileService } from './services/fileService/file.service';
 import { CurrentQuizService } from './services/currentQuizService/current-quiz.service';
 import { CurrentTopicService } from './services/currentTopicService/current-topic.service';
+import { CurrentQuestionService } from './services/currentQuestionService/current-question.service';
 
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
@@ -60,6 +61,7 @@ import { CreateQuestionComponent } from './components/create-question/create-que
     FileService,
     CurrentQuizService,
     CurrentTopicService,
+    CurrentQuestionService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Question } from '../../../types/question';
-import { CurrentTopicService } from '../../services/currentTopicService/current-topic.service';
+import { CurrentQuestionService } from '../../services/currentQuestionService/current-question.service';
 
 @Component({
   selector: 'app-manage-question',
@@ -16,7 +16,7 @@ export class ManageQuestionComponent implements OnInit, OnDestroy {
   private questionId: number;
 
   constructor(
-    private currentTopicService: CurrentTopicService,
+    private currentQuestionService: CurrentQuestionService,
     private route: ActivatedRoute,
     private router: Router,
   ) { }
@@ -26,7 +26,7 @@ export class ManageQuestionComponent implements OnInit, OnDestroy {
       this.topicId = +params['id'];
       this.questionId = +params['questionId'];
     });
-    this.question = { ...this.currentTopicService.getQuestion(this.questionId) };
+    this.question = this.currentQuestionService.getQuestion();
   }
 
   ngOnDestroy() {
@@ -34,10 +34,7 @@ export class ManageQuestionComponent implements OnInit, OnDestroy {
   }
 
   save = () => {
-    this.currentTopicService.updateQuestion(
-      this.questionId,
-      this.question,
-    );
+    this.currentQuestionService.saveQuestion();
     this.goToManageTopic();
   }
 

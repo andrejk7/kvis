@@ -29,7 +29,6 @@ export class ManageTopicComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
-    this.currentTopicService.clearTopic();
   }
 
   save = () => {

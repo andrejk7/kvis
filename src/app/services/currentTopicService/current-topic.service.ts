@@ -38,11 +38,11 @@ export class CurrentTopicService {
   updateQuestion = (id: number, data: Question) => {
     const index = RefMapper.findIndex(this.topic.questions, id);
     if (index === -1) { return; }
-    this.topic.questions[index] = { ...data };
+    this.topic.questions[index] = ObjectMapper.deepCopy(data);
   }
 
   addQuestion = (data: Question): Question => {
-    const question = { ...data };
+    const question = ObjectMapper.deepCopy(data);
     question.id = RefMapper.generateNextId(this.topic.questions);
     this.topic.questions.push(question);
     return question;

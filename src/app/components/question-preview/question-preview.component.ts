@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Question } from '../../../types/question';
+import { CurrentQuestionService } from '../../services/currentQuestionService/current-question.service';
 
 @Component({
   selector: 'app-question-preview',
@@ -15,6 +16,7 @@ export class QuestionPreviewComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private currentQuestionService: CurrentQuestionService,
   ) { }
 
   ngOnInit() {
@@ -24,6 +26,7 @@ export class QuestionPreviewComponent implements OnInit {
   }
 
   openManageQuestion = () => {
+    this.currentQuestionService.setQuestion(this.question);
     this.router.navigate([
       '/manage-topic',
       this.topicId,
