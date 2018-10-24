@@ -27,8 +27,12 @@ export class CreateQuizComponent implements OnInit {
     this.quiz.isStoredOnDisc = false;
   }
 
-  createQuiz = () => {
+  save = () => {
     this.currentQuizService.storeQuiz(this.quiz);
     this.router.navigate(['/manage-quiz']);
+  }
+
+  cancel = () => {
+    this.router.navigate(['/main']);
   }
 }

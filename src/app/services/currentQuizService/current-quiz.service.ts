@@ -86,7 +86,7 @@ export class CurrentQuizService {
   removeTopic = (id: number) => {
     const index = RefMapper.findIndex(this.quiz.topics, id);
     if (index === -1) { return; }
-    this.quiz.topic.splice(index, 1);
+    this.quiz.topics.splice(index, 1);
   }
 
   getQuestion = (topicId: number, questionId: number): Question => {

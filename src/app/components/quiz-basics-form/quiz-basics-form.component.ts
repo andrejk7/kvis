@@ -8,9 +8,14 @@ import { Quiz } from '../../../types/quiz';
 })
 export class QuizBasicsFormComponent {
   @Input() quiz: Quiz;
-  @Output() quizBasicsSubmitted: EventEmitter<void> = new EventEmitter<void>();
+  @Output() submitted: EventEmitter<void> = new EventEmitter<void>();
+  @Output() cancelled: EventEmitter<void> = new EventEmitter<void>();
 
   submitQuizBasics = () => {
-    this.quizBasicsSubmitted.emit();
+    this.submitted.emit();
+  }
+
+  cancel = () => {
+    this.cancelled.emit();
   }
 }

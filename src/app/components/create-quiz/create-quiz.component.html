@@ -6,7 +6,8 @@
   </h4>
   <app-quiz-basics-form
     [quiz]="quiz"
-    (quizBasicsSubmitted)="createQuiz()"
+    (submitted)="save()"
+    (cancelled)="cancel()"
   >
   </app-quiz-basics-form>
 </div>
