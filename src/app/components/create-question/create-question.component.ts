@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Question } from '../../../types/question';
-import { CurrentTopicService } from '../../services/currentTopicService/current-topic.service';
+import { CreateQuestionService } from '../../services/createQuestionService/create-question.service';
 
 @Component({
   selector: 'app-create-question',
@@ -12,18 +12,16 @@ export class CreateQuestionComponent implements OnInit, OnDestroy {
   public question: Question;
 
   private sub: any;
-  private topicId: number;
   private defaultPoints: number;
 
   constructor(
-    private currentTopicService: CurrentTopicService,
+    private createQuestionService: CreateQuestionService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.topicId = +params['id'];
       this.defaultPoints = +params['defaultPoints'];
     });
     this.initQuestion();
@@ -39,9 +37,7 @@ export class CreateQuestionComponent implements OnInit, OnDestroy {
   }
 
   save = () => {
-    this.currentTopicService.addQuestion(
-      this.question,
-    );
+    this.createQuestionService.saveQuestion(this.question);
     this.goToManageTopic();
   }
 
@@ -50,7 +46,7 @@ export class CreateQuestionComponent implements OnInit, OnDestroy {
   }
 
   goToManageTopic = () => {
-    this.router.navigate(['/manage-topic', this.topicId.toString()]);
+    this.router.navigate(['/manage-topic']);
   }
 
 }

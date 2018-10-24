@@ -28,6 +28,6 @@ export class TopicPreviewComponent {
 
   openManageTopic = () => {
     this.currentTopicService.setTopic(this.topic);
-    this.router.navigate(['/manage-topic', this.topic.id]);
+    this.router.navigate(['/manage-topic']);
   }
 }
