@@ -77,7 +77,7 @@ export class CurrentQuizService {
   }
 
   addTopic = (data: Topic): Topic => {
-    let topic = { ...data };
+    const topic = { ...data };
     topic.id = RefMapper.generateNextId(this.quiz.topics);
     this.quiz.topics.push(topic);
     return topic;
@@ -108,7 +108,7 @@ export class CurrentQuizService {
   addQuestion = (topicId: number, data: Question): Question => {
     const index = RefMapper.findIndex(this.quiz.topics, topicId);
     if (index === -1) { return; }
-    let question = { ...data };
+    const question = { ...data };
     question.id = RefMapper.generateNextId(this.quiz.topics[index].questions);
     this.quiz.topics[index].questions.push(question);
     return question;
