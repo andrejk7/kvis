@@ -9,6 +9,7 @@ import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 
 import { FileService } from './services/fileService/file.service';
+import { FileEncodingService } from './services/fileEncodingService/file-encoding.service';
 import { CreateQuizService } from './services/createQuizService/create-quiz.service';
 import { CurrentQuizService } from './services/currentQuizService/current-quiz.service';
 import { CreateTopicService } from './services/createTopicService/create-topic.service';
@@ -62,6 +63,7 @@ import { CreateQuestionComponent } from './components/create-question/create-que
   ],
   providers: [
     FileService,
+    FileEncodingService,
     CurrentQuizService,
     CreateQuizService,
     CurrentTopicService,
