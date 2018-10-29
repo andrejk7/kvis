@@ -1,22 +1,9 @@
 <div class="container text-center">
   <h2>Квис менађер</h2>
-  <app-quiz-preview
-    [quiz]="getCurrentQuiz()"
-    *ngIf="displayCurrentQuiz()"
-  >
-  </app-quiz-preview>
   <button class="btn btn-default" (click)="goToCreateQuiz()">
     Створити квис
   </button>
   <button class="btn btn-default" (click)="openQuiz()">
     Отворити квис
-  </button>
-  <button class="btn btn-default" (click)="goToManageQuiz()" *ngIf="displayCurrentQuiz()">
-    Уредити квис
-  </button>
-  <button class="btn btn-primary">
-    <strong>
-      Играти квис!!1
-    </strong>
   </button>
 </div>
