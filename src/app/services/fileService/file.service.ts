@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
 
 import { Quiz } from '../../../types/quiz';
@@ -9,7 +9,10 @@ import { AppSyncEvent } from '../../../types/appEvents';
 export class FileService {
   private quizLoadedCallback: Function;
 
-  constructor(private _electronService: ElectronService) {
+  constructor(
+    private _electronService: ElectronService,
+    private zone: NgZone,
+  ) {
     this.bindProcessEvents();
   }
 
@@ -33,9 +36,11 @@ export class FileService {
   }
 
   onQuizLoaded = (data: string) => {
-    if (!this.quizLoadedCallback) { return; }
-    const quiz = <Quiz>JSON.parse(data);
-    this.quizLoadedCallback(quiz);
-    this.quizLoadedCallback = null;
+    this.zone.run(() => {
+      if (!this.quizLoadedCallback) { return; }
+      const quiz = <Quiz>JSON.parse(data);
+      this.quizLoadedCallback(quiz);
+      this.quizLoadedCallback = null;
+    });
   }
 }
