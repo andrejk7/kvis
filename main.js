@@ -65,10 +65,6 @@ app.on('window-all-closed', function () {
   }
 });
 
-ipcMain.on('sync', (event, arg) => {
-    switch(arg.type) {
-      case 'saveQuiz': return saveFile(arg.payload);
-      case 'loadQuiz': return openFile();
-      default: return;
-    }
-});
+ipcMain.on('saveQuiz', (event, arg) => saveFile(arg.payload));
+
+ipcMain.on('loadQuiz', openFile);

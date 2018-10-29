@@ -21,7 +21,7 @@ export class FileService {
     const event = new AppSyncEvent;
     event.type = 'saveQuiz';
     event.payload = quiz;
-    this._electronService.ipcRenderer.send('sync', event);
+    this._electronService.ipcRenderer.send('saveQuiz', event);
   }
 
   loadQuiz = (loadedCallback: Function) => {
@@ -29,7 +29,7 @@ export class FileService {
 
     const event = new AppSyncEvent;
     event.type = 'loadQuiz';
-    this._electronService.ipcRenderer.send('sync', event);
+    this._electronService.ipcRenderer.send('loadQuiz', event);
   }
 
   onQuizLoaded = (data: string) => {
