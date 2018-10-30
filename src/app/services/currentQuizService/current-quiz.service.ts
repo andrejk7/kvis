@@ -92,6 +92,10 @@ export class CurrentQuizService {
     this.quiz.topics.splice(index, 1);
   }
 
+  getAllTopics = (): Array<Topic> => {
+    return this.quiz.topics;
+  }
+
   updateRound = (id: number, data: Round) => {
     const index = RefMapper.findIndex(this.quiz.rounds, id);
     if (index === -1) { return; }
@@ -116,6 +120,10 @@ export class CurrentQuizService {
     const index = RefMapper.findIndex(this.quiz.rounds, id);
     if (index === -1) { return; }
     return this.quiz.rounds[index];
+  }
+
+  getAllRounds = (): Array<Round> => {
+    return this.quiz.rounds;
   }
 
   clearQuiz = () => {
