@@ -33,6 +33,10 @@ export class ManageQuizComponent implements OnInit {
     this.router.navigate(['/create-topic']);
   }
 
+  setRounds = () => {
+    this.router.navigate(['/manage-rounds']);
+  }
+
   goToMain = () => {
     this.router.navigate(['/main']);
   }

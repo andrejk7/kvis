@@ -9,6 +9,7 @@ import { CreateTopicComponent } from './components/create-topic/create-topic.com
 import { ManageQuestionComponent } from './components/manage-question/manage-question.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.component';
+import { ManageRoundComponent } from './components/manage-round/manage-round.component';
 
 export const appRoutes: Routes = [
   { path: '', component: EnterScreenComponent},
@@ -17,6 +18,7 @@ export const appRoutes: Routes = [
   { path: 'manage-quiz', component: ManageQuizComponent},
   { path: 'manage-topic', component: ManageTopicComponent },
   { path: 'manage-question', component: ManageQuestionComponent },
+  { path: 'manage-rounds', component: ManageRoundComponent },
   { path: 'create-question/:defaultPoints', component: CreateQuestionComponent },
   { path: 'create-topic', component: CreateTopicComponent },
   { path: 'cu-se-kacim', component: CuSeKacimComponent },
