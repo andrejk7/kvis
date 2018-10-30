@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Quiz } from '../../../types/quiz';
 import { Topic } from '../../../types/topic';
 import { Question } from '../../../types/question';
+import { Round } from '../../../types/round';
 import { RefMapper } from '../../common/refMapper';
 import { ObjectMapper } from '../../common/objectMapper';
 import { FileService } from '../fileService/file.service';
@@ -83,6 +84,32 @@ export class CurrentQuizService {
     const index = RefMapper.findIndex(this.quiz.topics, id);
     if (index === -1) { return; }
     this.quiz.topics.splice(index, 1);
+  }
+
+  updateRound = (id: number, data: Round) => {
+    const index = RefMapper.findIndex(this.quiz.rounds, id);
+    if (index === -1) { return; }
+    this.quiz.rounds[index] = ObjectMapper.deepCopy(data);
+  }
+
+  addRound = (): Round => {
+    const round = new Round();
+    round.topicIds = [];
+    round.id = RefMapper.generateNextId(this.quiz.rounds);
+    this.quiz.rounds.push(round);
+    return round;
+  }
+
+  removeRound = (id: number) => {
+    const index = RefMapper.findIndex(this.quiz.rounds, id);
+    if (index === -1) { return; }
+    this.quiz.rounds.splice(index, 1);
+  }
+
+  getRound = (id: number): Round => {
+    const index = RefMapper.findIndex(this.quiz.rounds, id);
+    if (index === -1) { return; }
+    return this.quiz.rounds[index];
   }
 
   clearQuiz = () => {

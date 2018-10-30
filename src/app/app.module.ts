@@ -35,6 +35,8 @@ import { ManageQuestionComponent } from './components/manage-question/manage-que
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { FileInputComponent } from './components/file-input/file-input.component';
 import { ManageRoundComponent } from './components/manage-round/manage-round.component';
+import { TopicSelectorComponent } from './components/topic-selector/topic-selector.component';
+import { RoundTopicsComponent } from './components/round-topics/round-topics.component';
 
 
 @NgModule({
@@ -58,6 +60,8 @@ import { ManageRoundComponent } from './components/manage-round/manage-round.com
     CreateQuestionComponent,
     FileInputComponent,
     ManageRoundComponent,
+    TopicSelectorComponent,
+    RoundTopicsComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
