@@ -16,6 +16,7 @@ import { CreateTopicService } from './services/createTopicService/create-topic.s
 import { CurrentTopicService } from './services/currentTopicService/current-topic.service';
 import { CreateQuestionService } from './services/createQuestionService/create-question.service';
 import { CurrentQuestionService } from './services/currentQuestionService/current-question.service';
+import { CuSeKacimService } from './services/cuSeKacimService/cu-se-kacim.service';
 
 import { EnterScreenComponent } from './components/enter-screen/enter-screen.component';
 import { MainScreenComponent } from './components/main-screen/main-screen.component';
@@ -72,6 +73,7 @@ import { FileInputComponent } from './components/file-input/file-input.component
     CreateTopicService,
     CurrentQuestionService,
     CreateQuestionService,
+    CuSeKacimService,
   ],
   bootstrap: [AppComponent]
 })
