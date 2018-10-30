@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 
+const CU_SE_KACIM_VIDEO = '';
+
 @Injectable()
 export class CuSeKacimService {
 
-  constructor() { }
+  getVideo = (): string => {
+    return CU_SE_KACIM_VIDEO;
+  }
 
 }
