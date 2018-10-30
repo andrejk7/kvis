@@ -8,6 +8,7 @@ import { ManageTopicComponent } from './components/manage-topic/manage-topic.com
 import { CreateTopicComponent } from './components/create-topic/create-topic.component';
 import { ManageQuestionComponent } from './components/manage-question/manage-question.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
+import { CuSeKacimComponent } from './components/cu-se-kacim/cu-se-kacim.component';
 
 export const appRoutes: Routes = [
   { path: '', component: EnterScreenComponent},
@@ -18,4 +19,5 @@ export const appRoutes: Routes = [
   { path: 'manage-question', component: ManageQuestionComponent },
   { path: 'create-question/:defaultPoints', component: CreateQuestionComponent },
   { path: 'create-topic', component: CreateTopicComponent },
+  { path: 'cu-se-kacim', component: CuSeKacimComponent },
 ];

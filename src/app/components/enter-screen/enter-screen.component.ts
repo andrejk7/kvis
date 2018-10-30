@@ -16,4 +16,7 @@ export class EnterScreenComponent {
     this.router.navigate(['/main']);
   }
 
+  goToCuSeKacim = () => {
+    this.router.navigate(['/cu-se-kacim']);
+  }
 }
