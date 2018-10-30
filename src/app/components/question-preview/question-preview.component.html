@@ -4,6 +4,8 @@
   <p>
     {{question.answer}}
   </p>
+  <img style="width: 100px" *ngIf="question.questionImageEncoded" [src]="question.questionImageEncoded" />
+  <img style="width: 100px" *ngIf="question.answerImageEncoded" [src]="question.answerImageEncoded" />
   <button class="btn btn-primary" (click)="openManageQuestion()">
     <span class="glyphicon glyphicon-pencil"></span>
   </button>
