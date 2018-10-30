@@ -1,3 +1,6 @@
-<p>
-  topic-selector works!
-</p>
+<app-topic-selector-item
+  *ngFor="let topic of topics;"
+  [topic]="topic"
+  (toggleSelected)="onToggleTopicSelected($event, topic.id)"
+>
+</app-topic-selector-item>

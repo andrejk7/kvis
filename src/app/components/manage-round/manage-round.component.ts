@@ -12,6 +12,8 @@ export class ManageRoundComponent implements OnInit {
   public topics: Array<Topic>;
   public rounds: Array<Round>;
 
+  public selectedTopicsIds: Array<number> = [];
+
   constructor(
     private currentQuizService: CurrentQuizService,
   ) { }
