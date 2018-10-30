@@ -26,6 +26,7 @@ export class ManageQuizComponent implements OnInit {
   }
 
   cancel = () => {
+    this.currentQuizService.restoreQuiz();
     this.goToMain();
   }
 

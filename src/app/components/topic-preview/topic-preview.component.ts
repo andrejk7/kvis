@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Topic } from '../../../types/topic';
 import { CurrentTopicService } from '../../services/currentTopicService/current-topic.service';
+import { CurrentQuizService } from '../../services/currentQuizService/current-quiz.service';
 
 @Component({
   selector: 'app-topic-preview',
@@ -14,6 +15,7 @@ export class TopicPreviewComponent {
   constructor(
     private router: Router,
     private currentTopicService: CurrentTopicService,
+    private currentQuizService: CurrentQuizService,
   ) { }
 
   private displayQuestions: boolean;
@@ -24,6 +26,10 @@ export class TopicPreviewComponent {
 
   shouldDisplayQuestions = (): boolean => {
     return this.displayQuestions;
+  }
+
+  deleteTopic = () => {
+    this.currentQuizService.removeTopic(this.topic.id);
   }
 
   openManageTopic = () => {

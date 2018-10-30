@@ -54,6 +54,7 @@ const mockQuiz = {
 @Injectable()
 export class CurrentQuizService {
   private quiz: Quiz;
+  private quizInitialState: Quiz;
 
   constructor(
     private fileService: FileService,
@@ -61,6 +62,11 @@ export class CurrentQuizService {
 
   storeQuiz = (quiz: Quiz) => {
     this.quiz = ObjectMapper.deepCopy(quiz);
+    this.quizInitialState = ObjectMapper.deepCopy(quiz);
+  }
+
+  restoreQuiz = () => {
+    this.storeQuiz(this.quizInitialState);
   }
 
   getQuiz = (): Quiz => {

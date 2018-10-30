@@ -4,6 +4,9 @@
   <button class="btn btn-primary" (click)="openManageTopic()">
     <span class="glyphicon glyphicon-pencil"></span>
   </button>
+  <button class="btn btn-default btn-cancel" (click)="deleteTopic()">
+    <span class="glyphicon glyphicon-remove"></span>
+  </button>
 </div>
 <div class="questions" *ngIf="shouldDisplayQuestions()">
   <app-question-preview
