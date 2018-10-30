@@ -8,14 +8,23 @@
       class="form-control"
       type="text"
       [(ngModel)]="question.question"
+      [disabled]="formDisabled()"
       placeholder="Прашање"
       required
+    >
+    <input
+      name="questionImage"
+      class="form-control"
+      type="file"
+      [disabled]="formDisabled()"
+      placeholder="Сли4ица"
     >
     <input
       name="points"
       class="form-control"
       type="number"
       [(ngModel)]="question.points"
+      [disabled]="formDisabled()"
       placeholder="Поени"
       min="10"
       max="50"
@@ -27,16 +36,25 @@
       class="form-control"
       type="text"
       [(ngModel)]="question.answer"
+      [disabled]="formDisabled()"
       placeholder="Одговор"
       required
     >
     </textarea>
+    <input
+      name="questionImage"
+      class="form-control"
+      type="file"
+      [disabled]="formDisabled()"
+      placeholder="Сли4ица за одговор"
+    >
     <input
       name="bonusQuestion"
       class="form-control"
       type="text"
       placeholder="Бонус прашање"
       [(ngModel)]="question.bonusQuestion"
+      [disabled]="formDisabled()"
     >
     <input
       name="bonusPoints"
@@ -47,6 +65,7 @@
       max="50"
       step="1"
       [(ngModel)]="question.bonusPoints"
+      [disabled]="formDisabled()"
     >
     <textarea
       name="bonusAnswer"
@@ -54,6 +73,7 @@
       type="text"
       placeholder="Бонус одговор"
       [(ngModel)]="question.bonusAnswer"
+      [disabled]="formDisabled()"
     >
     </textarea>
 
@@ -61,13 +81,14 @@
       class="btn btn-default"
       type="button"
       (click)="cancel()"
+      [disabled]="formDisabled()"
     >
       Заеби
     </button>
     <button
       class="btn btn-primary"
       type="submit"
-      [disabled]="!questionForm.form.valid"
+      [disabled]="!questionForm.form.valid || formDisabled()"
     >
       Сачувати питање
     </button>

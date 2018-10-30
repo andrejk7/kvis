@@ -27,12 +27,7 @@ export class QuestionPreviewComponent implements OnInit {
 
   openManageQuestion = () => {
     this.currentQuestionService.setQuestion(this.question);
-    this.router.navigate([
-      '/manage-topic',
-      this.topicId,
-      'question',
-      this.question.id
-    ]);
+    this.router.navigate(['/manage-question']);
   }
 }
 
