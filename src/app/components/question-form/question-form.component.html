@@ -12,13 +12,12 @@
       placeholder="Прашање"
       required
     >
-    <input
-      name="questionImage"
-      class="form-control"
-      type="file"
+    <app-file-input
       [disabled]="formDisabled()"
-      placeholder="Сли4ица"
+      [placeholder]="'Сли4ица'"
+      (onFileSelected)=onQuestionImageSelected($event)
     >
+    </app-file-input>
     <input
       name="points"
       class="form-control"
@@ -41,13 +40,12 @@
       required
     >
     </textarea>
-    <input
-      name="questionImage"
-      class="form-control"
-      type="file"
+    <app-file-input
       [disabled]="formDisabled()"
-      placeholder="Сли4ица за одговор"
+      [placeholder]="'Сли4ица за одговор'"
+      (onFileSelected)=onAnswerImageSelected($event)
     >
+    </app-file-input>
     <input
       name="bonusQuestion"
       class="form-control"

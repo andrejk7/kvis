@@ -1,0 +1,9 @@
+<input
+  name="fileInput"
+  class="form-control"
+  type="file"
+  [disabled]="disabled"
+  [placeholder]="placeholder"
+  #file
+  (change)="onChange(file.files)"
+>

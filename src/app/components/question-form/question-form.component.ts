@@ -26,6 +26,14 @@ export class QuestionFormComponent {
   private encodingAnswerImage: boolean;
   private finishedEncodingAnswerImage: boolean;
 
+  onQuestionImageSelected = (file: File) => {
+    this.questionImage = file;
+  }
+
+  onAnswerImageSelected = (file: File) => {
+    this.answerImage = file;
+  }
+
   submitQuestion = (event: any) => {
     event.preventDefault();
     this.encodeImages();
