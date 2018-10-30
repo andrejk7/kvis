@@ -11,7 +11,7 @@ import { Quiz } from '../../../types/quiz';
   styleUrls: ['./main-screen.component.css']
 })
 export class MainScreenComponent implements OnInit {
-  private quizLoaded: boolean;
+  public quizLoaded: boolean;
 
   constructor(
     private router: Router,

@@ -9,7 +9,7 @@ import { Named } from '../../../types/named';
 export class ManageNameComponent {
   @Input() named: Named;
 
-  private editing: boolean;
+  public editing: boolean;
   private editedName: string;
 
   edit = () => {
