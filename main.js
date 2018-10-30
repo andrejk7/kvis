@@ -39,7 +39,8 @@ function createWindow() {
   // Initialize the window to our specified dimensions
   win = new BrowserWindow({width: 1000, height: 600});
   // Specify entry point
-  win.loadURL('http://localhost:4200');
+  // win.loadURL('http://localhost:4200');
+  win.loadURL(`file://${__dirname}/dist/index.html`)
   // Show dev tools
   // Remove this line before distributing
   win.webContents.openDevTools()
