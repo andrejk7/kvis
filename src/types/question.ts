@@ -10,3 +10,7 @@ export class Question extends Ref {
   bonusAnswer?: string;
   answerImageEncoded?: string;
 }
+
+export class PlayableQuestion extends Question {
+  answered: boolean;
+}
