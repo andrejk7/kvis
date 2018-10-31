@@ -1,5 +1,6 @@
 import { Ref } from './ref';
+import { Topic } from './topic';
 
 export class Round extends Ref {
-  topicIds: Array<number>;
+  topics: Array<Topic>;
 }
